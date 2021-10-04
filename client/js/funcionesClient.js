@@ -3,6 +3,7 @@ let moduloClient = "/ords/admin/client/client";
 let mail_format = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 function editarCliente(id) {
+	event.preventDefault();
 	$.ajax({
 		url: urlConexion + moduloClient + "/" + id,
 		type: 'GET',
@@ -19,40 +20,41 @@ function editarCliente(id) {
 			$("#lblTitle").html("Actualizar Cliente");
 			$("#txtId").attr('disabled', 'disabled');
 		},
-		error: function (result) { console.log(result) },
-		complete: consultarClientes()
+		error: function (result) { console.log(result) }
 	});
+	event.preventDefault();
 }
 
-function borrarCliente(id) {
-	var datos = {
-		id:id
-	}
+function borrarCliente(codigo) {
+	event.preventDefault();
 	$.ajax({
 		url: urlConexion + moduloClient,
-		type: 'post',
-		dataType: 'json',
+		type: 'DELETE',
+		data: JSON.stringify({
+			"id": codigo
+		}),
 		contentType: 'application/json',
-		error: function (result) { console.log(result) },
-		success: function (result) { console.log(result) },
-		complete: consultarClientes()
+		dataType: 'text',
+		error: function (result) { alert('Error: Ver log para detalles.'); console.log(result); },
+		success: function () { alert('Usuario Eliminado.'); consultarClientes(); }
 	});
 }
 
 function registrarNuevoCliente() {
+	event.preventDefault();
 	$.ajax({
 		url: urlConexion + moduloClient,
 		data: JSON.stringify({
-			id: $("#txtId").val(),
-			name: $("#txtNombre").val(),
-			email: $("#txtEmail").val(),
-			age: $("#txtEdad").val()
+			"id": $("#txtId").val(),
+			"name": $("#txtNombre").val(),
+			"email": $("#txtEmail").val(),
+			"age": $("#txtEdad").val()
 		}),
 		type: 'POST',
-		dataType: 'json',
-		error: function (result) { console.log(result) },
-		success: alert('Cliente agregado a la base de datos.'),
-		complete: consultarClientes()
+		contentType: 'application/json',
+		dataType: 'text',
+		error: function (result) { alert('Error: Ver log para detalles.'); console.log(result); },
+		success: function () { alert('Usuario Agregado.'); consultarClientes(); }
 	});
 }
 
@@ -114,10 +116,7 @@ function consultarClientes() {
 		type: 'GET',
 		dataType: 'json',
 		error: crearListaClientes([]),
-		success: function (json) {
-			crearListaClientes(json.items);
-			console.log(json)
-		}
+		success: function (json) { crearListaClientes(json.items); }
 	});
 	$("#btnAgregar").show();
 	$("#btnActualizar").hide();
@@ -135,17 +134,15 @@ function actualizarCliente() {
 	$.ajax({
 		url: urlConexion + moduloClient,
 		data: JSON.stringify({
-			id: $("#txtId").val(),
-			name: $("#txtNombre").val(),
-			email: $("#txtEmail").val(),
-			age: $("#txtEdad").val()
+			"id": $("#txtId").val(),
+			"name": $("#txtNombre").val(),
+			"email": $("#txtEmail").val(),
+			"age": $("#txtEdad").val()
 		}),
 		type: 'PUT',
-		dataType: 'json',
-		success: function (json) {
-			console.log(json);
-		},
-		error: function (result) { console.log(result) },
-		complete: consultarClientes()
+		contentType: 'application/json',
+		dataType: 'text',
+		error: function (result) { alert('Error: Ver log para detalles.'); console.log(result); },
+		success: function (result) { alert('Usuario Actualizado.'); consultarClientes(); }
 	});
 }
