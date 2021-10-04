@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Sistema de Administración de Hoteles - Clientes</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/funcionesClient.js"></script>
+</head>
+
+<body>
+	<h1>Sistema de Administración de Hoteles</h1>
+	<h2>Módulo Clientes</h2>
+	<hr>
+	<table id="tblPage" style="width: 100%;">
+		<tr>
+			<td style="width: 50%;">
+				<div id="pnlListaClientes"></div>
+			</td>
+			<td style="width: 50%;">
+				<h2 id="lblTitle" style="text-align: center"></h2>
+				<form id="frmRegistro">
+					<table id="tblNuevoCliente" style="width: 100%;">
+						<tr>
+							<td style="width: 50%; text-align: right"><label for="txtId">*
+									ID:</label></td>
+							<td style="width: 50%;"><input type="number" min="1" id="txtId"></td>
+						<tr>
+							<td style="text-align: right"><label for="txtNombre">*
+									Nombre:</label></td>
+							<td><input id="txtNombre"></td>
+						</tr>
+						<tr>
+							<td style="text-align: right"><label for="txtEmail">*
+									E-mail:</label></td>
+							<td><input type="email" id="txtEmail"></td>
+						</tr>
+						<tr>
+							<td style="text-align: right"><label for="txtEdad">*
+									Edad:</label></td>
+							<td type="number"><input type="number" min="1" id="txtEdad"></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: center"><button id="btnAgregar"
+									onclick="agregarCliente();">Agregar
+									Cliente</button><button id="btnActualizar" onclick="actualizarCliente();">Actualizar
+									Cliente</button><button id="btnCancelar"
+									onclick="consultarClientes();">Cancelar</button></td>
+						</tr>
+					</table>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<hr>
+	<script>consultarClientes();</script>
+</body>
+
+</html>
