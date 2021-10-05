@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel La Mesa</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/misFunciones.js"></script>
+
+    <style>
+        table, td {
+          border: 1px solid black;
+          font-family: 'Roboto Mono', monospace;
+        }
+        
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          font-family: 'Roboto Mono', monospace;
+        }
+        body {background-color: rgb(64, 53, 160);
+        
+          font-family: 'Roboto Mono', monospace;   
+}
+        
+        </style>
+</head>
+<body>
+   
+    
+<h1 style="color:rgba(250, 248, 250, 0.911);">Reservas del hotel La Mesa, Fosca, Cundinamarca</h1>
+<h3 style="color:rgba(250, 248, 250, 0.911);">Mensajes de visitantes del hotel</h3>
+<button onclick="traerInformacion()">Consultar Mensajes</button>
+<br/>
+<br>
+<div id="resultado">   
+</div>
+
+<fieldset style="width: 30% , color=rgba(250, 248, 250, 0.911);">
+    <legend style= "color:rgba(250, 248, 250, 0.911);">Información del mensaje</legend>
+<div>
+    <br>
+    <input type="number" id="id" placeholder="id">
+    <input type="text" id="message" placeholder="message">
+    
+   
+</div>
+
+    
+<br>
+<button onclick="guardarInformacion()">Guardar!</button>
+<button onclick="editarInformacion()">Actualizar!</button>
+</fieldset>
+<!--<div id="resultadoRoom">
+    <br>
+    <button onclick="traerInformacionRoom()">Consultar Habitaciones</button>
+</div>
+!-->
+
+</body>
+
+</html>
