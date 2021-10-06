@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ES">
+<!--  <meta charset = "UTF-8"/>    charset utf-8 para caracteres especiales-->
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" -->
+<!-- <meta name = "description" content = "">    Tag para SEO en browsers-->
+<!-- <meta name = "robots" content = "index, follow"> -->
+<head>
+	<meta charset="UTF-8">
+	<title>Hotel Mesa de la Vega - Rooms</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="JS/script_Js.js"></script>
+</head>
+
+<body style="background-color:#768df5;">
+	
+	<h1 style="color:#f0f0e8bb">Hotel Mesa de la Vega</h1>
+	<h2 style="color:#f0f0e8bb">Rooms</h2>
+	<hr>
+	<table id="tblPage" style="width: 100%;">
+		<tr>
+			<td style="width: 50%;">
+				<div id="pnlListaRooms"></div>
+			</td>
+			<td style="width: 50%;">
+				<h2 id="lblTitle" style="text-align: center"> </h2>
+				<form id="frmRegister">
+					<table id="tblNuevoRoom" style="width: 100%;">
+						<tr>
+							<td style="width: 50%; text-align: right"><label for="txtId">*
+									ID:</label></td>
+							<td style="width: 50%;"><input type="number" min="1" id="txtId"></td>
+						<tr>
+							<td style="text-align: right"><label for="txtRoom">*
+									Room:</label></td>
+							<td><input id="txtRoom"></td>
+						</tr>
+						<tr>
+							<td style="text-align: right"><label for="txtStars">*
+									Stars:</label></td>
+							<td><input type="number" id="txtStars"></td>
+						</tr>
+						<tr>
+							<td style="text-align: right"><label for="txtCategory_id">*
+									Category:</label></td>
+							<td type="number"><input type="number" min="1" id="txtCategory_id"></td>
+						</tr>
+						<tr>
+							<td style="text-align: right"><label for="txtDescription">*
+									Description:</label></td>
+							<td><input id="txtDescription"></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: center"><button id="btnAgregar" onclick="agregarRoom();">Add Room</button>
+								<button id="btnActualizar" onclick="actualizarRoom();">Update Room</button>
+								<button id="btnCancelar" onclick="event.preventDefault(); consultarRoom();">Cancel</button></td>
+						</tr>
+					</table>
+				</form>
+			</td>
+		</tr>
+	</table>
+	<hr>
+	<script>consultarRoom();</script>
+	
+</body>
+
+</html>
+
